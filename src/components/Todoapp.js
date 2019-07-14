@@ -4,6 +4,7 @@ import List from './List';
 import Textbar from './Textbar';
 import style from '../style.module.css';
 import Button from './Button';
+import uuid from "uuid";
 
 class Todoapp extends Component {
 
@@ -11,8 +12,14 @@ class Todoapp extends Component {
     todoItems: []
   };
 
-  currentData = (TextBarData) => {
-    this.setState({ todoItems: [...this.state.todoItems, TextBarData] });
+  addTodo = (addtitle) => {
+    const newTodo = {
+      id: uuid.v4(),
+      title: addtitle,
+      completed: false
+    }
+    
+    this.setState({ todoItems: [...this.state.todoItems, newTodo] });
   };
 
   render() {
@@ -21,9 +28,9 @@ class Todoapp extends Component {
         <br />  <br />  <br />  <br />  <br />  <br />
 
         <h1 >TO DO</h1>
-        <Textbar newData={this.currentData} />
+        <Textbar addNewTodo={this.addTodo} />
 
-        <List newTodoItems={this.state.todoItems} />
+        <List listTodoItems={this.state.todoItems} />
         <Button type="All" />
         <br />
         <Button type="Active" />

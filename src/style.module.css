@@ -33,7 +33,7 @@ h1{
  background: black;
  color: aquamarine;
  height:22px;
- width:20.5%;
+ width:28%;
 }
 
 
@@ -56,4 +56,8 @@ color: black;
       
       .btn:hover {
         background: #666;
+      }
+
+   .textbar{
+     height: 24px;
       }

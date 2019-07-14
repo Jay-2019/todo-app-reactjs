@@ -5,16 +5,13 @@ class List extends Component{
 
    render(){
 
-            let listItems = this.props.newTodoItems.map((value)=> {
+            let listItems = this.props.listTodoItems.map((value)=> {
                console.log(value)
-            return   <li key={value.toString()}> {value.toUpperCase()} </li>
+            return   <li key={value.id}> {value.title.toUpperCase()} </li>
             });
           return ( 
                 <ul>
-                   {
-                     listItems
-                   }
-               
+                   {listItems }
                </ul>  
                
          )

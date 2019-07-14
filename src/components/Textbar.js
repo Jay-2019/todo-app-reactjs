@@ -4,19 +4,23 @@ import style from '../style.module.css';
 class Textbar extends React.Component{
 
   state={
-    title:''
+    title:""
   }
 
-
+  handleChange = (event) =>{
+    this.setState({ title: event.target.value });
+  };
 
 handleSubmit=(event)=>{
   event.preventDefault(); 
-const k=document.getElementById("enterTodo").value;
-if(k===""){
-  alert("Plese enter your TODO ");
-return false
-}else
-this.props.newData(k);
+  const k = document.getElementById("enterTodo").value;
+ if(k === ""){
+   alert("Please Enter Your TODO...");
+   return 
+ }else{
+  this.props.addNewTodo(this.state.title);
+  this.setState({ title: "" });
+  }
 };
 
 
@@ -25,7 +29,7 @@ this.props.newData(k);
          return(   <div>
                    <form  onSubmit={this.handleSubmit}  >
                      
-                    <input id="enterTodo" type="text" placeholder="Add todo..." size='30' onChange={this.handleChange}  />
+                    <input id="enterTodo" type="text" placeholder="Add todo..." size='30' onChange={this.handleChange} className={style.textbar} />
                     <input type="submit" value="Submit"  className={style.btn} />
                
                   </form>
