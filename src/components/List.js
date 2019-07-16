@@ -1,21 +1,24 @@
-import React, {Component} from 'react';
+import React from 'react';
+// import style from '../style.module.css';
+class List extends React.Component {
+    render() {
 
-
-class List extends Component{
-
-   render(){
-
-            let listItems = this.props.listTodoItems.map((value)=> {
-               console.log(value)
-            return   <li key={value.id}> {value.title.toUpperCase()} </li>
-            });
-          return ( 
-                <ul>
-                   {listItems }
-               </ul>  
-               
-         )
-                
+        return <div>
+            {this.props.todoItems.map(item => {
+                return (
+                    <li key={item.id}>
+                        <input type="checkbox" onChange={this.props.markComplete.bind(this, item.id)} checked={item.complete ? "checked" : ""} />
+                        {" "}
+                        &nbsp;
+                        {item.title}
+                        &nbsp;
+                        &nbsp;
+                        <button onClick={this.props.deleteTodo.bind(this, item.id)} >Delete</button>
+                    </li>
+                )
+            })}
+            
+        </div>
     }
-};
+}
 export default List;
