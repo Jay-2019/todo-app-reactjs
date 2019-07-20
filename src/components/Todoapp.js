@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 // import List from './List';
 import Textbar from './Textbar';
+//import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap/dist/css/bootstrap-theme.css';
 import style from '../style.module.css';
 import Filter from './Filter';
 import PrintFilterData from './PrintFilterData';
