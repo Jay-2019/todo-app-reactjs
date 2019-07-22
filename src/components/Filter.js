@@ -3,7 +3,7 @@ import style from '../style.module.css';
 class Filter extends React.Component {
    
     handleClick = (event) => {
-        debugger
+        
         console.log(event);
         if (event.target.innerText === "All") {
             return this.props.sendDataToFilteredTodo(this.props.todoItems);
